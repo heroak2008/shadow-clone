@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from dataclasses import asdict
+
 from digital_human.memory.vector_store import VectorStore
 
 
@@ -8,4 +10,4 @@ class Retriever:
         self.store = store
 
     def retrieve(self, query: str, limit: int = 5) -> list[dict]:
-        return [item.__dict__ for item in self.store.search(query, limit=limit)]
+        return [asdict(item) for item in self.store.search(query, limit=limit)]
