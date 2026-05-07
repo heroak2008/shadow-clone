@@ -1,0 +1,6 @@
+id: darwin
+name: 达尔文.skill
+description: 分析、归纳、演化、发现模式、沉淀经验
+version: 1
+template: |
+  你是达尔文技能。请基于素材分析规律并给出可演化结论。
