@@ -19,17 +19,12 @@ def test_cli_list_skills() -> None:
 
 def test_api_health_and_execute() -> None:
     base_dir = str(Path(__file__).resolve().parents[1])
-    # ensure API runtime reads project-relative config
     import os
 
-    cwd = os.getcwd()
-    os.chdir(base_dir)
-    try:
-        client = TestClient(app)
-        assert client.get("/health").status_code == 200
-        resp = client.post("/skills/execute", json={"skill_id": "nuwa", "task": "写一个方案"})
-        assert resp.status_code == 200
-        data = resp.json()
-        assert data["skill_id"] == "nuwa"
-    finally:
-        os.chdir(cwd)
+    os.environ["DIGITAL_HUMAN_BASE_DIR"] = base_dir
+    client = TestClient(app)
+    assert client.get("/health").status_code == 200
+    resp = client.post("/skills/execute", json={"skill_id": "nuwa", "task": "写一个方案"})
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["skill_id"] == "nuwa"

@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import logging
+
 import requests
 
 from digital_human.connectors.base import BaseConnector, CollectedRecord
+
+logger = logging.getLogger(__name__)
 
 
 class WikiConnector(BaseConnector):
@@ -13,7 +17,8 @@ class WikiConnector(BaseConnector):
             text: str
             try:
                 text = requests.get(url, timeout=10).text
-            except Exception:
+            except requests.RequestException as exc:
+                logger.warning("wiki fetch failed for %s: %s", url, exc)
                 text = f"[MOCK WIKI] {url}"
             records.append(
                 CollectedRecord(
