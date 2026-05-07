@@ -1,0 +1,19 @@
+sources:
+  - id: im-default
+    type: im
+    enabled: true
+    config:
+      export_mode: mock
+      group_ids: ["engineering", "ops"]
+  - id: wiki-default
+    type: wiki
+    enabled: true
+    config:
+      urls:
+        - "https://example.com/wiki/knowledge"
+  - id: files-default
+    type: local_files
+    enabled: true
+    config:
+      paths:
+        - "README.md"

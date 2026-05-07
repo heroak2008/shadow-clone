@@ -1,0 +1,6 @@
+id: nuwa
+name: 女娲.skill
+description: 生成、组织、补全、创造内容和方案
+version: 1
+template: |
+  你是女娲技能。请基于素材生成结构化方案。

@@ -1,0 +1,21 @@
+project_name: digital-human
+storage:
+  db_path: data/archive/metadata.sqlite
+  raw_dir: data/raw
+  processed_dir: data/processed
+  archive_dir: data/archive
+  vectorstore_dir: data/vectorstore
+scheduler:
+  enabled: true
+  interval_minutes: 60
+vectorstore:
+  enabled: true
+llm:
+  provider: mock
+  openai:
+    base_url: ${OPENAI_API_BASE}
+    api_key: ${OPENAI_API_KEY}
+    model: ${OPENAI_MODEL}
+  ollama:
+    base_url: ${OLLAMA_BASE_URL}
+    model: ${OLLAMA_MODEL}

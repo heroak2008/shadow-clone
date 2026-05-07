@@ -1,0 +1,7 @@
+skills:
+  - id: darwin
+    name: 达尔文.skill
+    file: skills/darwin.skill.yaml
+  - id: nuwa
+    name: 女娲.skill
+    file: skills/nuwa.skill.yaml
