@@ -6,7 +6,7 @@ class Chunker:
     def chunk(text: str, size: int = 500, overlap: int = 50) -> list[str]:
         if size <= 0:
             return [text]
-        overlap = max(0, min(overlap, size - 1)) if size > 1 else 0
+        overlap = max(0, min(overlap, size - 1))
         chunks: list[str] = []
         start = 0
         while start < len(text):
@@ -14,5 +14,5 @@ class Chunker:
             chunks.append(text[start:end])
             if end >= len(text):
                 break
-            start = max(0, end - overlap)
+            start = end - overlap
         return chunks

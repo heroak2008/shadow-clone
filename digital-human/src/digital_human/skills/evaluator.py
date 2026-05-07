@@ -8,8 +8,7 @@ IDEAL_TEMPLATE_LENGTH = 2000.0
 
 class SkillEvaluator:
     def evaluate(self, skill: SkillDefinition, samples: list[str]) -> dict:
-        sample_denominator = IDEAL_SAMPLE_COUNT or 1.0
-        coverage = min(1.0, (len(samples) / sample_denominator))
+        coverage = min(1.0, (len(samples) / IDEAL_SAMPLE_COUNT))
         richness = min(1.0, len(skill.template) / IDEAL_TEMPLATE_LENGTH)
         return {
             "skill_id": skill.id,
